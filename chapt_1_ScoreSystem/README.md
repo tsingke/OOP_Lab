@@ -61,10 +61,10 @@ int main()
 }
 
 ```
+---
 
 * 学生成绩管理函数设计（头文件score.h)
 
-头文件
 
 ```c
 #pragma once
@@ -114,6 +114,8 @@ void printOut(SS stu[], int N);
 #endif
 
 ```
+
+---
 
 * 学生成绩管理函数设计（函数实现score.c)
 
