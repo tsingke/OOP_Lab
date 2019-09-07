@@ -77,7 +77,7 @@ int main()
 #include <stdio.h>
 
 /*----------------------------------*
-	Function Declaration
+	   学生信息-结构体设计
 *-----------------------------------*/
 
 typedef struct student
