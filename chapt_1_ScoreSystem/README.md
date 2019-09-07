@@ -67,7 +67,7 @@ int main()
 
 
 ```c
-#pragma once
+
 /*************************************************
 * Head File   : SCORE.h
 * File Usage  : 学生管理系统头文件
