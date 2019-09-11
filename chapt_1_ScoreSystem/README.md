@@ -164,7 +164,7 @@ SS* readDataFromFile(int *N)
 	int count = 0;
 	int index = 0;
 
-	fp = fopen("studentInfo.txt", "r");
+	fp = fopen("data.txt", "r");
 
 	//1.获取学生数目
 	if (fp != NULL)
