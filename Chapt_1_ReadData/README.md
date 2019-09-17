@@ -36,11 +36,15 @@ int main()
     }
      //-------------------------文件读写操作-------------------------------
     int x;   
+    
+    // 1. 将文件数据依次读入到内存
     while(srcFile >> x) //可以像用cin那样用ifstream对象
         a[total++] = x;
         
+    // 2. 数据处理
     qsort(a,total,sizeof(int),MyCompare); //排序
     
+    // 3. 将处理后的数据写入到文件
     for(int i = 0;i < total; ++i)
         destFile << a[i] << " "; //可以像用cout那样用ofstream对象
         
