@@ -3,8 +3,10 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib> //qsort在此头文件中声明
+
 using namespace std;
 
+//---------------------------------------
 
 const int MAX_NUM = 1000;
 int a[MAX_NUM]; //存放文件中读入的整数
