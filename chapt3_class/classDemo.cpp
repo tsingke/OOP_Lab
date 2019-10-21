@@ -20,10 +20,7 @@ struct student_s
 	double high;
 	double weight;
 	double salary;
-
 };
-
-
 
 class date
 {
