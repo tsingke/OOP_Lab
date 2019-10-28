@@ -1,8 +1,6 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww12600\viewh7800\viewkind0
-}
 
+## oop课堂演示代码
 
-课堂演示案例-代码
+授课班级：`18计本 || 18计师本 || 18计联培`
+
+授课时间： 每周二上午1-2节（C区440）， 下午5-6节（文宗楼104）
