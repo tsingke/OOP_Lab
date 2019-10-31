@@ -12,7 +12,7 @@ public:
     date(int y,int m,int d) ;
     ~date();
     void display();
-    friend void birthdayCheck(date &r1,date &r2);
+    friend void birthdayCheck(date &r1,date &r2);// 友元“流浪”函数的声明 
 };
 
 date::date(int y, int m, int d)
