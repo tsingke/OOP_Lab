@@ -6,7 +6,7 @@ using namespace std;
 
 student::student(int id, const char *user_name)
 {
-	cout << "¹¹Ôìº¯Êı±»µ÷ÓÃ" << endl;
+	cout << "æ„é€ å‡½æ•°è¢«è°ƒç”¨" << endl;
 	this->id = id;
 
 	if (user_name!=NULL)
@@ -27,9 +27,9 @@ student::student(const student & r)
 {
 	this->id = r.id;
 
-   // this->name = r.name;//Ç³¿½±´<-----Õ»ÉÏ²Ù×÷
+   // this->name = r.name;//æµ…æ‹·è´<-----æ ˆä¸Šæ“ä½œ
 
-	if (r.name!=NULL)//Éî¶È¿½±´<---¶ÑÉÏ²Ù×÷
+	if (r.name!=NULL)//æ·±åº¦æ‹·è´<---å †ä¸Šæ“ä½œ
 	{
 		int len = strlen(r.name);
 
@@ -42,16 +42,21 @@ student::student(const student & r)
 
 student::~student()
 {
-	cout << "--Îö¹¹º¯Êı±»µ÷ÓÃ--" << endl;
+	cout << "--ææ„å‡½æ•°è¢«è°ƒç”¨--" << endl;
+	
+	if(name != NULL)
+	{
+	  delete[] name;
+	}
 
-	delete[] name;
+	
 }
 
 void student::display()
 {
-	cout << "Ñ§ºÅid  = " << id << endl;
+	cout << "å­¦å·id  = " << id << endl;
 
-	cout << "ĞÕÃûname= " << name << endl;
+	cout << "å§“åname= " << name << endl;
 
 
 }
