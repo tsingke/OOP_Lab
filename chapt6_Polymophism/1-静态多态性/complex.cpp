@@ -2,7 +2,7 @@
 
 
 
-//-----------------------³ÉÔ±º¯Êı-------------------------
+//-----------------------æˆå‘˜å‡½æ•°-------------------------
 
 complex::complex()
 {
@@ -44,14 +44,14 @@ complex complex::operator+(const complex &other)
 
 }
 
-//¸³ÖµÔËËã·û=
+//èµ‹å€¼è¿ç®—ç¬¦=
 complex complex::operator=(const complex &other)
 {
     this->real = other.real;
     this->imag = other.imag;
 }
 
-//Ç°++
+//å‰++
 complex complex::operator++()
 {
     ++this->real;
@@ -61,7 +61,7 @@ complex complex::operator++()
 
 }
 
-//ºó++
+//å++
 complex complex::operator++(int)
 {
     complex temp;//
@@ -73,7 +73,7 @@ complex complex::operator++(int)
 
 }
 
-//º¯Êıµ÷ÓÃ·û
+//å‡½æ•°è°ƒç”¨ç¬¦
 double complex::operator()()
 {
     double sum = this->real * this->real + this->imag *this->imag;
@@ -82,11 +82,13 @@ double complex::operator()()
 
 }
 
+
+//-----------------------å‹å…ƒå‡½æ•°-------------------------
 ostream & operator<<(ostream &out, complex &t)
 {
     out<<t.real<<"+" <<t.imag<<"i"<<endl;
 }
 
-//-----------------------ÓÑÔªº¯Êı-------------------------
+
 
 
