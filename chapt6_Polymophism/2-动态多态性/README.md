@@ -1,6 +1,6 @@
 ## 动态多态性--代码演示
 
-![](VirtualFunction.jpg)
+![](https://github.com/tsingke/OOP_Lab/blob/master/chapt6_Polymophism/2-%E5%8A%A8%E6%80%81%E5%A4%9A%E6%80%81%E6%80%A7/VirtualFunction.jpg)
 
 ```c++
 
