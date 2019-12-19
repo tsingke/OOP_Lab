@@ -23,14 +23,14 @@ int main()
     
      //-----------------------建立文件输入流---------------------------------
      
-    ifstream srcFile("in.txt",ios::in); //以文本模式打开in.txt备读
+    ifstream srcFile("in.txt",ios::in); //创建输入流对象srcFile，以文本模式打开in.txt备读
     if(!srcFile) { //打开失败
         cout << "error opening source file." << endl;
         return 0;
     }
     
     //-------------------------建立文件输出流-------------------------------
-    ofstream destFile("out.txt",ios::out); //以文本模式打开out.txt备写
+    ofstream destFile("out.txt",ios::out); //创建输出流对象destFile，以文本模式打开out.txt备写
     if(!destFile) {
         srcFile.close(); //程序结束前不能忘记关闭以前打开过的文件
         cout << "error opening destination file." << endl;
