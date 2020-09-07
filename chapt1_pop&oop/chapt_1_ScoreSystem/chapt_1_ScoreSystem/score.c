@@ -1,50 +1,50 @@
 /*************************************************
-** Դ�ļ�   : score.c
-** ����˵�� : Function Definitions
-** �����汾 : v1.0
+** 源文件   : score.c
+** 功能说明 : Function Definitions
+** 创建版本 : v1.0
 /**************************************************/
 
-/*----------------ͷ�ļ�--------------*/
+/*----------------头文件--------------*/
 #define  _CRT_SECURE_NO_WARNINGS
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "SCORE.h"
 
-/*----------------��������-------------*/
+/*----------------函数定义-------------*/
 
-//1.1�ֶ�����ѧ����������
+//1.1手动输入学生基本数据
 void readData(SS stu[], int N)
 {
 
-	printf("�밴�����¸�ʽ����ѧ����Ϣ��ѧ��,����,ƽʱ�ɼ�,��ĩ�ɼ�\n");
+	printf("请按照如下格式输入学生信息：学号,姓名,平时成绩,期末成绩\n");
 
 	for (int i = 0; i < N; i++)
 	{
-		printf("��%d��ѧ��:", i + 1);
+		printf("第%d个学生:", i + 1);
 		scanf("%s %s %f %f", &stu[i].number, &stu[i].name, &stu[i].dailyScore, &stu[i].finalScore);
 		printf("\n");
 	}
 
-	printf("------�ɼ�¼�����!--------\n");
+	printf("------成绩录入完毕!--------\n");
 
 }
 
-//1.2���ļ����ȡѧ����������
+//1.2从文件里读取学生基本数据
 SS* readDataFromFile(int *N)
 {
 
-	printf("\n\n------��һ��: ���ļ���ȡѧ���ĳɼ���Ϣ--------\n\n");
+	printf("\n\n------第一步: 从文件读取学生的成绩信息--------\n\n");
 
-	SS *stu;// �����¿ռ�,��ȡ�ļ��е�ÿ��ѧ����Ϣ
+	SS *stu;// 开辟新空间,存取文件中的每个学生信息
 
 	FILE *fp = NULL;
 	int count = 0;
 	int index = 0;
 
-	fp = fopen("studentInfo.txt", "r");
+	fp = fopen("data.txt", "r");
 
-	//1.��ȡѧ����Ŀ
+	//1.获取学生数目
 	if (fp != NULL)
 	{
 		fscanf(fp, "%d", &count);
@@ -56,22 +56,22 @@ SS* readDataFromFile(int *N)
 		getchar();
 	}
 
-	printf("ѧ����ĿΪ:%d\n", count);
+	printf("学生数目为:%d\n", count);
 
 
-	//2.������ѧ������洢�ռ�
+	//2.给所有学生分配存储空间
 	stu = (SS*)malloc(count * sizeof(SS));
 
 
-	//3.��ȡÿ��ѧ������Ϣ
+	//3.读取每条学生的信息
 	while ((!feof(fp)))
 	{
 
-		//�����ļ����ݵ��ڴ�	
+		//读入文件数据到内存	
 		fscanf(fp, "%s%s%f%f\n", (stu[index].number), (stu[index].name), &stu[index].dailyScore, &stu[index].finalScore);
 
-		//���������ѧ����Ϣ
-		printf("* ѧ�ţ�%s	����:%s		ƽʱ�ɼ���%4.2f��		��ĩ�ɼ�:%4.2f��\n", (stu[index].number), (stu[index].name), stu[index].dailyScore, stu[index].finalScore);
+		//输出排序后的学生信息
+		printf("* 学号：%s	姓名:%s		平时成绩：%4.2f分		期末成绩:%4.2f分\n", (stu[index].number), (stu[index].name), stu[index].dailyScore, stu[index].finalScore);
 
 		index++;
 	}
@@ -83,18 +83,18 @@ SS* readDataFromFile(int *N)
 	return stu;
 }
 
-//2.����N��ѧ�����Ե������ɼ�
+//2.计算N个学生各自的总评成绩
 void calcuScore(SS stu[], int N)
 {
 
 
-	printf("\n\n------�ڶ���: ����ÿ��ѧ���������ɼ�--------\n\n");
+	printf("\n\n------第二步: 计算每个学生的总评成绩--------\n\n");
 
 	for (int i = 0; i < N; i++)
 	{
 
 		stu[i].generalScore = 0.2*stu[i].dailyScore + 0.8*stu[i].finalScore;
-		printf("* ѧ�ţ�%s	����:%s		�ܳɼ�:%4.2f��\n", (stu[i].number), (stu[i].name), stu[i].generalScore);
+		printf("* 学号：%s	姓名:%s		总成绩:%4.2f分\n", (stu[i].number), (stu[i].name), stu[i].generalScore);
 
 	}
 
@@ -102,7 +102,7 @@ void calcuScore(SS stu[], int N)
 }
 
 
-//3.���������ɼ�����
+//3.根据总评成绩排名
 int cmpBigtoSmall(const void *a, const void *b)
 {
 
@@ -127,16 +127,16 @@ void sortScore(SS stu[], int N)
 
 }
 
-//4.����һ���ĸ�ʽ���N��ѧ������Ϣ
+//4.按照一定的格式输出N个学生的信息
 void printOut(SS stu[], int N)
 {
 
-	printf("\n------������: �����ܳɼ����ѧ��������Ϣ!------\n\n");
+	printf("\n------第三步: 根据总成绩输出学生排名信息!------\n\n");
 
 	for (int i = 0; i < N; i++)
 	{
 
-		printf("��%d����Ϣ ѧ�ţ�%s	����:%s		�ܳɼ�:%4.2f��\n", i + 1, &(stu[i].number[0]), &(stu[i].name[0]), stu[i].generalScore);
+		printf("第%d名信息 学号：%s	姓名:%s		总成绩:%4.2f分\n", i + 1, &(stu[i].number[0]), &(stu[i].name[0]), stu[i].generalScore);
 	}
 
 	getchar();
